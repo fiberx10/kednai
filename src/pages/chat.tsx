@@ -1,4 +1,3 @@
-import ChatBackImage from "@/assets/chat_back.jpg";
 import Image from "next/image";
 import { useState } from "react";
 import { AiFillVideoCamera } from "react-icons/ai";
@@ -9,7 +8,15 @@ import { TfiReload } from "react-icons/tfi";
 
 import { useSpeechRecognition, useSpeechSynthesis } from "react-speech-kit";
 
+import { OpenAIApi, Configuration } from "openai";
+
 const Chat = () => {
+  const openai = new OpenAIApi(
+    new Configuration({
+      apiKey: "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",
+    })
+  );
+
   const [words, setWords] = useState("");
   const [chatButtonState, setChatButtonState] = useState("inherit");
   const [chatButtonEffect, setChatButtonEffect] = useState("active");
@@ -29,21 +36,35 @@ const Chat = () => {
     setChatButtonState("recording");
   };
 
-  const stopRecording = () => {
+  async function stopRecording() {
     stop();
     setChatButtonState("fetching");
+    // openai completion
+    //const prompt = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: ";
+    await openai
+      .createCompletion({
+        model: "davinci",
+        prompt: value,
+        max_tokens: 50,
+      })
+      .then((response) => {
+        console.log(response.data.choices[0].text);
+        speak({ text: response.data.choices[0].text });
+      });
+
+    //setValue(response.data.choices[0].text);
     setTimeout(() => {
       speak({ text: value });
       setChatButtonState("inherit");
     }, 2000);
-  };
+  }
 
   // useEffect(() => {
   //   console.log("transcript", transcript);
   // }, [transcript]);
 
   return (
-    <div className=" grid place-content-center bg-cover w-screen h-screen">
+    <div className=" grid place-content-center bg-cover bg-[#FFD1EB] w-screen h-screen">
       <div>
         <p> {value} </p>
       </div>
@@ -62,7 +83,13 @@ const Chat = () => {
           </div>
         </div>
       ) : (
-        <Image alt="" src={ChatBackImage} className="w-[300px] h-[300px]" />
+        <Image
+          alt=""
+          src="/assets/chat_back.jpg"
+          width={300}
+          height={300}
+          className="w-[300px] h-[300px]"
+        />
       )}
       <div className="fixed bottom-0 h-64 w-full grid place-content-center ">
         {chatButtonState === "inherit" && (

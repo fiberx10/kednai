@@ -1,14 +1,23 @@
 import { FaExternalLinkSquareAlt } from "react-icons/fa";
 import Link from "next/link";
 
+import i from "..//..//assets/topics/books.png";
+
 interface CardProps {
   name: string;
   image: string;
   color: string;
   link?: string;
+  isActiveLink?: boolean;
 }
 
-export default function Card({ name, image, color, link }: CardProps) {
+export default function Card({
+  name,
+  image,
+  color,
+  link,
+  isActiveLink,
+}: CardProps) {
   return (
     <div
       className={
@@ -24,11 +33,17 @@ export default function Card({ name, image, color, link }: CardProps) {
         <h1 className="w-full px-3 font-bold ">{name}</h1>
       )}
 
-      {link && (
+      {link  && (
         <div className="w-4 h-4 absolute right-3 bottom-4 text-slate-500 ">
-          <Link href={"/topic/" + link}>
-            <FaExternalLinkSquareAlt className="text-1xl" />
-          </Link>
+          {isActiveLink ? (
+            <Link href={link}>
+              <FaExternalLinkSquareAlt className="text-1xl" />
+            </Link>
+          ) : (
+            <Link href={"/topic/" + link}>
+              <FaExternalLinkSquareAlt className="text-1xl" />
+            </Link>
+          )}
         </div>
       )}
     </div>

@@ -8,6 +8,7 @@ import Card from "@/app/components/Card";
 
 export default function Topic() {
   const [data, setData] = useState() as any;
+  const [title, setTitle] = useState("") as any;
   // get the topic name from the url
   const router = useRouter();
 
@@ -26,6 +27,7 @@ export default function Topic() {
   useEffect(() => {
     // console.log("slugs" + slug);
     if (query.slug) {
+      setTitle(query.slug[query.slug.length - 1]);
       let data = findInfo(query.slug as Array<string>, AppTopics);
       console.log(data);
       setData(data);
@@ -33,8 +35,8 @@ export default function Topic() {
   }, [query.slug]);
 
   return (
-    <div className="bg-gradient-to-r h-full w-full from-[#FF9A8B] via-[#F0C1F1] to-[#FF9A8B]  ">
-      <div className="w-full p-3 flex text-slate-400">
+    <div className="bg-gradient-to-r pt-16 h-full min-h-screen w-full from-[#FF9A8B] via-[#F0C1F1] to-[#FF9A8B] ">
+      <div className="w-full p-3 flex text-slate-400 h-12 bg-white ">
         <RxDashboard className="text-lg mt-[3px] mr-2" />
         {data?.path?.split("/").map((item: string, index: number) => {
           return (
@@ -45,17 +47,32 @@ export default function Topic() {
           );
         })}
       </div>
+      <div className="w-full grid pt-10 place-content-center">
+        <h1 className="h-8  uppercase text-2xl font-bold text-[#690061]">
+          {title}
+        </h1>
+      </div>
 
       <div className="mt-8 flex flex-wrap justify-center">
-        {data?.children?.map((item: any , index : any) => {
+        {data?.children?.map((item: any, index: any) => {
           return (
             <div className="flex flex-wrap  " key={index}>
-              <Card
-                name={item.name}
-                image={item.image}
-                color={item.color}
-                link={item.children ? item.path : null}
-              />
+              {!item.activelink ? (
+                <Card
+                  name={item.name}
+                  image={item.image}
+                  color={item.color}
+                  link={item.children ? item.path : null}
+                />
+              ) : (
+                <Card
+                  name={item.name}
+                  image={item.image}
+                  color={item.color}
+                  link={item.path }
+                  isActiveLink={item.activelink}
+                />
+              )}
             </div>
           );
         })}
