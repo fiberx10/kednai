@@ -66,9 +66,7 @@ const Chat = () => {
 
   return (
     <div className=" grid place-content-center bg-cover bg-[#FFD1EB] w-screen h-screen">
-      <div>
-        <p> {value} </p>
-      </div>
+     
       {fetching ? (
         <div className="fixed top-0 left-0 w-full h-full bg-transparent bg-opacity-50 z-50 grid place-content-center">
           <div className="bg-white p-3 rounded-xl">
