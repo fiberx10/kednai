@@ -118,7 +118,25 @@ const AppTopics = [
     image: "/assets/topics/chat.png",
     color: "#f5f5f5",
     path: "/chat",
-    activelink: true,
+    children: [
+      {
+        id: 1,
+        name: "Chat with users",
+        slug: "users",
+        image: "/assets/topics/chat.png",
+        color: "#f5f5f5",
+        path: "/chat/users",
+      },
+      {
+        id: 2,
+        name: "Digital assistant",
+        slug: "assistant",
+        image: "/assets/topics/chat.png",
+        color: "#f5f5f5",
+        activelink: true,
+        path: "/chat",
+      },
+    ],
   },
   {
     id: 3,
