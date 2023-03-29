@@ -1,0 +1,52 @@
+[debug] [2023-03-29T01:44:59.070Z] ----------------------------------------------------------------------
+[debug] [2023-03-29T01:44:59.072Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-03-29T01:44:59.072Z] CLI Version:   11.25.2
+[debug] [2023-03-29T01:44:59.072Z] Platform:      win32
+[debug] [2023-03-29T01:44:59.073Z] Node Version:  v18.0.0
+[debug] [2023-03-29T01:44:59.074Z] Time:          Tue Mar 28 2023 18:44:59 GMT-0700 (Pacific Daylight Time)
+[debug] [2023-03-29T01:44:59.074Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-29T01:44:59.159Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-29T01:44:59.160Z] > authorizing via signed-in user (fiberx01services@gmail.com)
+[debug] [2023-03-29T01:44:59.160Z] [iam] checking project kidnai01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-03-29T01:44:59.163Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions [none]
+[debug] [2023-03-29T01:44:59.163Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions x-goog-quota-user=projects/kidnai01
+[debug] [2023-03-29T01:44:59.163Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-29T01:45:00.078Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions 200
+[debug] [2023-03-29T01:45:00.079Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-29T01:45:00.081Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kidnai01 [none]
+[debug] [2023-03-29T01:45:00.690Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kidnai01 200
+[debug] [2023-03-29T01:45:00.691Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kidnai01 {"projectId":"kidnai01","projectNumber":"257189136892","displayName":"KIDNAI","name":"projects/kidnai01","resources":{"hostingSite":"kidnai01"},"state":"ACTIVE","etag":"1_8ccd5942-5078-4b0b-a09d-f82b2ac4b9f1"}
+[debug] [2023-03-29T01:46:46.024Z] Error: Command failed: npm.cmd i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:817:11)
+    at execSync (node:child_process:888:15)
+    at prepareFrameworks (C:\Users\fiberx01\AppData\Roaming\nvm\v18.0.0\node_modules\firebase-tools\lib\frameworks\index.js:372:42)
+    at async deploy (C:\Users\fiberx01\AppData\Roaming\nvm\v18.0.0\node_modules\firebase-tools\lib\deploy\index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-03-29T01:47:31.627Z] ----------------------------------------------------------------------
+[debug] [2023-03-29T01:47:31.629Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy --force
+[debug] [2023-03-29T01:47:31.629Z] CLI Version:   11.25.2
+[debug] [2023-03-29T01:47:31.630Z] Platform:      win32
+[debug] [2023-03-29T01:47:31.630Z] Node Version:  v18.0.0
+[debug] [2023-03-29T01:47:31.631Z] Time:          Tue Mar 28 2023 18:47:31 GMT-0700 (Pacific Daylight Time)
+[debug] [2023-03-29T01:47:31.631Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-29T01:47:31.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-29T01:47:31.715Z] > authorizing via signed-in user (fiberx01services@gmail.com)
+[debug] [2023-03-29T01:47:31.715Z] [iam] checking project kidnai01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-03-29T01:47:31.718Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions [none]
+[debug] [2023-03-29T01:47:31.718Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions x-goog-quota-user=projects/kidnai01
+[debug] [2023-03-29T01:47:31.718Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-29T01:47:33.047Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions 200
+[debug] [2023-03-29T01:47:33.048Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/kidnai01:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-29T01:47:33.051Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kidnai01 [none]
+[debug] [2023-03-29T01:47:33.516Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kidnai01 200
+[debug] [2023-03-29T01:47:33.517Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kidnai01 {"projectId":"kidnai01","projectNumber":"257189136892","displayName":"KIDNAI","name":"projects/kidnai01","resources":{"hostingSite":"kidnai01"},"state":"ACTIVE","etag":"1_8ccd5942-5078-4b0b-a09d-f82b2ac4b9f1"}
+[debug] [2023-03-29T01:48:12.305Z] Error: Command failed: npm.cmd i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:817:11)
+    at execSync (node:child_process:888:15)
+    at prepareFrameworks (C:\Users\fiberx01\AppData\Roaming\nvm\v18.0.0\node_modules\firebase-tools\lib\frameworks\index.js:372:42)
+    at async deploy (C:\Users\fiberx01\AppData\Roaming\nvm\v18.0.0\node_modules\firebase-tools\lib\deploy\index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
