@@ -15,7 +15,7 @@ const Chat = () => {
 
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: "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",
+      apiKey: "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",
     })
   );
 
