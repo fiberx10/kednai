@@ -1,0 +1,10 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/api/addkey": "pages/api/addkey.js",
+  "/chat": "pages/chat.html",
+  "/": "pages/index.html",
+  "/topic/[...slug]": "pages/topic/[...slug].html",
+  "/404": "pages/404.html"
+}
