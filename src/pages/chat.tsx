@@ -11,10 +11,12 @@ import { useSpeechRecognition, useSpeechSynthesis } from "react-speech-kit";
 import { OpenAIApi, Configuration } from "openai";
 
 const Chat = () => {
+  
  
+
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: "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",
+      apiKey: "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",
     })
   );
 
