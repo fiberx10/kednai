@@ -49,13 +49,9 @@ const Chat = () => {
       .then((response) => {
         console.log(response.data.choices[0].text);
         speak({ text: response.data.choices[0].text });
+        setChatButtonState("inherit");
       });
 
-    //setValue(response.data.choices[0].text);
-    setTimeout(() => {
-      speak({ text: value });
-      setChatButtonState("inherit");
-    }, 2000);
   }
 
   // useEffect(() => {
