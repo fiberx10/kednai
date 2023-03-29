@@ -15,18 +15,10 @@ const Chat = () => {
 
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: key,
+      apiKey: "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",
     })
   );
 
- useEffect(() => {
-    fetch("/api/getkey")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("key" + data.key);
-        setKey(data.key);
-      });
- }, []);
 
   const [words, setWords] = useState("");
   const [chatButtonState, setChatButtonState] = useState("inherit");
