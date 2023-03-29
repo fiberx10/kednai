@@ -11,15 +11,11 @@ import { useSpeechRecognition, useSpeechSynthesis } from "react-speech-kit";
 import { OpenAIApi, Configuration } from "openai";
 
 const Chat = () => {
-  
- 
-
   const openai = new OpenAIApi(
     new Configuration({
       apiKey: "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",
     })
   );
-
 
   const [words, setWords] = useState("");
   const [chatButtonState, setChatButtonState] = useState("inherit");
@@ -45,16 +41,23 @@ const Chat = () => {
     setChatButtonState("fetching");
     // openai completion
     //const prompt = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: ";
-    await openai
-      .createCompletion({
-        model: "davinci",
-        prompt: value,
-      })
-      .then((response) => {
-        console.log(response.data.choices[0].text);
-        speak({ text: response.data.choices[0].text });
-        setChatButtonState("inherit");
-      });
+    // await openai
+    //   .createCompletion({
+    //     model: "davinci",
+    //     prompt: value,
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data.choices[0].text);
+    //     speak({ text: response.data.choices[0].text });
+    //     setChatButtonState("inherit");
+    //   });
+
+    speak({
+      text:
+        "openai chatgpt is overloaded right now , and your free access comes to end , so i'm goona to repeat your speech , you said :" +
+        value,
+    });
+    setChatButtonState("inherit");
   }
 
   // useEffect(() => {
