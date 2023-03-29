@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 
 type Data = {
-  name: string;
+  message: string;
   key?: string;
 };
 
@@ -11,12 +11,11 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // get key from request query
-  const key = req.query.key;
-  // write the key to key.txt file in the same directory
-  fs.writeFileSync("key.txt", key as string);
+  // get key from key.txt file in the same directory
+  const key = fs.readFileSync("key.txt", "utf8");
   // send response
   res.send({
-    name: "key added successfully !",
+    message: "key retrieved",
+    key: key as string,
   });
 }

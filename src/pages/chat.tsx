@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillVideoCamera } from "react-icons/ai";
 import { MdOutlineSettingsVoice } from "react-icons/md";
 import { RiVoiceprintLine } from "react-icons/ri";
@@ -11,11 +11,22 @@ import { useSpeechRecognition, useSpeechSynthesis } from "react-speech-kit";
 import { OpenAIApi, Configuration } from "openai";
 
 const Chat = () => {
+  const [key, setKey] = useState("");
+
   const openai = new OpenAIApi(
     new Configuration({
-      apiKey: "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",
+      apiKey: key,
     })
   );
+
+ useEffect(() => {
+    fetch("/api/getkey")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("key" + data.key);
+        setKey(data.key);
+      });
+ }, []);
 
   const [words, setWords] = useState("");
   const [chatButtonState, setChatButtonState] = useState("inherit");
@@ -51,7 +62,6 @@ const Chat = () => {
         speak({ text: response.data.choices[0].text });
         setChatButtonState("inherit");
       });
-
   }
 
   // useEffect(() => {
