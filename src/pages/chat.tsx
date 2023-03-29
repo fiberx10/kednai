@@ -43,9 +43,8 @@ const Chat = () => {
     //const prompt = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: ";
     await openai
       .createCompletion({
-        model: "davinci",
+        model: "ada",
         prompt: value,
-        max_tokens: 50,
       })
       .then((response) => {
         console.log(response.data.choices[0].text);
